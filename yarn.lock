@@ -12121,14 +12121,14 @@ __metadata:
 
 "rn-ripple-button@file:../::locator=example%40workspace%3Aexample":
   version: 0.1.0
-  resolution: "rn-ripple-button@file:../#../::hash=c0dcf5&locator=example%40workspace%3Aexample"
+  resolution: "rn-ripple-button@file:../#../::hash=6c1174&locator=example%40workspace%3Aexample"
   dependencies:
     react-native-reanimated: ^3.7.0
   peerDependencies:
     react: "*"
     react-native: "*"
     react-native-reanimated: ^3.7.0
-  checksum: abe967d22dac093222be96961b65f3106c62de878117f9f8a85ef6edd70562c8acaf9afddd227bc70fa4e0c52015c19681d0ceb1672f836b4720bea5eb844b19
+  checksum: d23fe79bdf2c0b20eb2c57237470b1d3b9e817db3c5c246b221743c94ab5d4c2dbb67e9d12a8857f6589760f95d996916408d54a0b6651606ce8ef87f51e7b2d
   languageName: node
   linkType: hard
 
