@@ -41,14 +41,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SolankiYogesh/rn-ripple-button.git"
+    "url": "git+https://github.com/SolankiYogesh/RN-Ripple-Button"
   },
   "author": "Solanki Yogesh <solankiyogesh3500@gmail.com> (https://github.com/SolankiYogesh)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SolankiYogesh/rn-ripple-button/issues"
+    "url": "https://github.com/SolankiYogesh/RN-Ripple-Button/issues"
   },
-  "homepage": "https://github.com/SolankiYogesh/rn-ripple-button#readme",
+  "homepage": "https://github.com/SolankiYogesh/RN-Ripple-Button#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
