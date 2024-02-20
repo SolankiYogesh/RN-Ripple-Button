@@ -5,17 +5,18 @@ import useRipple from './useRipple';
 import {
   type StyleProp,
   type ViewStyle,
-  type PressableProps,
   Pressable,
   StyleSheet,
 } from 'react-native';
+import type { PressableProps } from 'react-native';
 
-export interface RippleButtonProps extends PressableProps {
+interface RippleButtonProps extends PressableProps {
   color?: string;
   duration?: number;
 }
+
 const RippleButton = (props: RippleButtonProps) => {
-  const { color = 'blue', duration } = props;
+  const { color = '#5f5a5a29', duration } = props;
   const { animatedStyle, onLayout, onPressIn, onPressOut } =
     useRipple(duration);
   return (

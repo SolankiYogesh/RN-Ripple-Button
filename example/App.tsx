@@ -1,16 +1,68 @@
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
-import React from 'react';
-import {RippleButton} from 'rn-ripple-button';
+import React, {useCallback, useState} from 'react';
+import {
+  FlatList,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
+import RippleButton from 'rn-ripple-button';
+
+const buttonColors = [
+  {buttonColor: '#3498db', rippleColor: '#2980b9'},
+  {buttonColor: '#2ecc71', rippleColor: '#27ae60'},
+  {buttonColor: '#e74c3c', rippleColor: '#c0392b'},
+  {buttonColor: '#f39c12', rippleColor: '#d35400'},
+  {buttonColor: '#9b59b6', rippleColor: '#8e44ad'},
+];
+type ItemType = (typeof buttonColors)[0];
 const App = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const renderItem = useCallback(
+    ({item, index}: {item: ItemType; index: number}) => {
+      const backgroundColor =
+        index === selectedIndex ? item.rippleColor : 'transparent';
+      return (
+        <Pressable
+          onPress={() => setSelectedIndex(index)}
+          style={[styles.itemContainer, {borderColor: item.buttonColor}]}>
+          <View
+            style={[
+              styles.innerCircle,
+              {
+                backgroundColor,
+              },
+            ]}
+          />
+        </Pressable>
+      );
+    },
+    [selectedIndex],
+  );
+
   return (
     <SafeAreaView style={styles.container}>
-      <RippleButton color="#8867E6" style={styles.button}>
-        <Text>App</Text>
+      <RippleButton
+        style={[
+          styles.button,
+          {
+            backgroundColor: buttonColors[selectedIndex]?.buttonColor,
+          },
+        ]}
+        duration={5000}
+        color={buttonColors[selectedIndex]?.rippleColor}>
+        <Text style={styles.btnText}>{'Press Me'}</Text>
       </RippleButton>
-      <RippleButton color="red" style={styles.button}>
-        <Text>App</Text>
-      </RippleButton>
+      <FlatList
+        data={buttonColors}
+        renderItem={renderItem}
+        horizontal
+        keyExtractor={item => item.buttonColor}
+        contentContainerStyle={styles.contentContainerStyle}
+      />
     </SafeAreaView>
   );
 };
@@ -20,15 +72,35 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'center',
-    rowGap: 20,
   },
   button: {
-    backgroundColor: '#9D7AFA',
+    backgroundColor: '#00000029',
     padding: 20,
-    marginHorizontal: 20,
-    borderRadius: 30,
     width: '80%',
+    alignSelf: 'center',
+    borderRadius: 10,
+    marginVertical: 10,
+    alignItems: 'center',
+  },
+  itemContainer: {
+    width: 50,
+    height: 50,
+    borderRadius: 300,
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  contentContainerStyle: {
+    gap: 10,
+  },
+  innerCircle: {
+    width: '70%',
+    height: '70%',
+    borderRadius: 300,
+  },
+  btnText: {
+    color: 'white',
   },
 });

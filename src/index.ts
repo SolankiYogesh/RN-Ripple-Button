@@ -1,4 +1,3 @@
-import RippleButton, { type RippleButtonProps } from './RippleButton';
+import RippleButton from './RippleButton';
 
-export { RippleButton };
-export type { RippleButtonProps };
+export default RippleButton;
