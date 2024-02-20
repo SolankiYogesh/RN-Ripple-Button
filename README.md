@@ -19,7 +19,7 @@ yarn add rn-ripple-button
 >  Note that for iOS you have to try on real device
 
 ```js
-import { RippleButton } from 'rn-ripple-button';
+import RippleButton from 'rn-ripple-button';
 
 // ...
 
