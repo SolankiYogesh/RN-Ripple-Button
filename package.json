@@ -1,6 +1,6 @@
 {
   "name": "rn-ripple-button",
-  "version": "0.1.0",
+  "version": "1.1.2",
   "description": "simple react native animated ripple effect",
   "main": "src/index",
   "module": "src/index",
