@@ -1,5 +1,4 @@
-import React from 'react';
-
+/* eslint-disable react/react-in-jsx-scope */
 import Animated from 'react-native-reanimated';
 import useRipple from './useRipple';
 import {
@@ -16,7 +15,7 @@ interface RippleButtonProps extends PressableProps {
 }
 
 const RippleButton = (props: RippleButtonProps) => {
-  const { color = '#5f5a5a29', duration } = props;
+  const { color = '#5f5a5a29', duration, ...rest } = props;
   const { animatedStyle, onLayout, onPressIn, onPressOut } =
     useRipple(duration);
   return (
@@ -39,6 +38,7 @@ const RippleButton = (props: RippleButtonProps) => {
           props.onLayout(event);
         }
       }}
+      {...rest}
       style={[styles.hidden, props.style as StyleProp<ViewStyle>]}
     >
       <Animated.View
